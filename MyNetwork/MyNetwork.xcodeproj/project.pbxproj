@@ -7,15 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C479544C1E60247C003F6823 /* XFunctDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = C479544B1E60247C003F6823 /* XFunctDataService.m */; };
+		C479544F1E603F5C003F6823 /* DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C479544E1E603F5C003F6823 /* DViewController.m */; };
 		C4E3D88D1E5ECB3900E0D323 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3D88C1E5ECB3900E0D323 /* main.m */; };
 		C4E3D8901E5ECB3900E0D323 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3D88F1E5ECB3900E0D323 /* AppDelegate.m */; };
 		C4E3D8931E5ECB3900E0D323 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3D8921E5ECB3900E0D323 /* ViewController.m */; };
 		C4E3D8961E5ECB3900E0D323 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4E3D8941E5ECB3900E0D323 /* Main.storyboard */; };
 		C4E3D8981E5ECB3900E0D323 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4E3D8971E5ECB3900E0D323 /* Assets.xcassets */; };
 		C4E3D89B1E5ECB3900E0D323 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4E3D8991E5ECB3900E0D323 /* LaunchScreen.storyboard */; };
+		C4E3D8A51E5EE42400E0D323 /* XDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3D8A41E5EE42400E0D323 /* XDataService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C479544A1E60247C003F6823 /* XFunctDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFunctDataService.h; sourceTree = "<group>"; };
+		C479544B1E60247C003F6823 /* XFunctDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFunctDataService.m; sourceTree = "<group>"; };
+		C479544D1E603F5C003F6823 /* DViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DViewController.h; sourceTree = "<group>"; };
+		C479544E1E603F5C003F6823 /* DViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DViewController.m; sourceTree = "<group>"; };
 		C4E3D8881E5ECB3900E0D323 /* MyNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4E3D88C1E5ECB3900E0D323 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C4E3D88E1E5ECB3900E0D323 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +33,8 @@
 		C4E3D8971E5ECB3900E0D323 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4E3D89A1E5ECB3900E0D323 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4E3D89C1E5ECB3900E0D323 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4E3D8A31E5EE42400E0D323 /* XDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDataService.h; sourceTree = "<group>"; };
+		C4E3D8A41E5EE42400E0D323 /* XDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDataService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +67,13 @@
 		C4E3D88A1E5ECB3900E0D323 /* MyNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				C4E3D8A21E5EE3F700E0D323 /* XNetwork */,
 				C4E3D88E1E5ECB3900E0D323 /* AppDelegate.h */,
 				C4E3D88F1E5ECB3900E0D323 /* AppDelegate.m */,
 				C4E3D8911E5ECB3900E0D323 /* ViewController.h */,
 				C4E3D8921E5ECB3900E0D323 /* ViewController.m */,
+				C479544D1E603F5C003F6823 /* DViewController.h */,
+				C479544E1E603F5C003F6823 /* DViewController.m */,
 				C4E3D8941E5ECB3900E0D323 /* Main.storyboard */,
 				C4E3D8971E5ECB3900E0D323 /* Assets.xcassets */,
 				C4E3D8991E5ECB3900E0D323 /* LaunchScreen.storyboard */,
@@ -77,6 +89,17 @@
 				C4E3D88C1E5ECB3900E0D323 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4E3D8A21E5EE3F700E0D323 /* XNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				C4E3D8A31E5EE42400E0D323 /* XDataService.h */,
+				C4E3D8A41E5EE42400E0D323 /* XDataService.m */,
+				C479544A1E60247C003F6823 /* XFunctDataService.h */,
+				C479544B1E60247C003F6823 /* XFunctDataService.m */,
+			);
+			path = XNetwork;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +174,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4E3D8A51E5EE42400E0D323 /* XDataService.m in Sources */,
+				C479544C1E60247C003F6823 /* XFunctDataService.m in Sources */,
 				C4E3D8931E5ECB3900E0D323 /* ViewController.m in Sources */,
+				C479544F1E603F5C003F6823 /* DViewController.m in Sources */,
 				C4E3D8901E5ECB3900E0D323 /* AppDelegate.m in Sources */,
 				C4E3D88D1E5ECB3900E0D323 /* main.m in Sources */,
 			);
@@ -310,6 +336,7 @@
 				C4E3D8A11E5ECB3900E0D323 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
