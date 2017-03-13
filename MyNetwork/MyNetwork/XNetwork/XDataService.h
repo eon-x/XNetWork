@@ -17,6 +17,9 @@ typedef void (^FailBlock) (id error);
 + (void)startGetWithURL:(NSString *)urlString cBlock:(Completion)cblock fBlock:(FailBlock)fblock;
 + (void)startPostWithURL:(NSString *)urlString dict:(NSDictionary *)dict cBlock:(Completion)cblock fBlock:(FailBlock)fblock;
 
+//异步获取缓存请求
++ (void)startPostCacheWithURL:(NSString *)urlString dict:(NSDictionary *)dict cBlock:(Completion)cblock fBlock:(FailBlock)fblock;
+
 //同步
 + (void)startSyncGetWithURL:(NSString *)urlString cBlock:(Completion)cblock fBlock:(FailBlock)fblock;
 + (void)startSyncPostWithURL:(NSString *)urlString dict:(NSDictionary *)dict cBlock:(Completion)cblock fBlock:(FailBlock)fblock;

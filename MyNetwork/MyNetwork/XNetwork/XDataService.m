@@ -7,9 +7,11 @@
 //
 
 #import "XDataService.h"
+#import "XDBData.h"
 
 @implementation XDataService
 
+#pragma mark 异步Get
 + (void)startGetWithURL:(NSString *)urlString cBlock:(Completion)cblock fBlock:(FailBlock)fblock{
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -24,7 +26,26 @@
     [sessionDataTask resume];
 }
 
+#pragma mark 异步Post
 + (void)startPostWithURL:(NSString *)urlString dict:(NSDictionary *)dict cBlock:(Completion)cblock fBlock:(FailBlock)fblock{
+    [XDataService postWithURL:urlString dict:dict cBlock:cblock fBlock:fblock isCache:NO];
+}
+
+#pragma mark 异步Post + Cache
++ (void)startPostCacheWithURL:(NSString *)urlString dict:(NSDictionary *)dict cBlock:(Completion)cblock fBlock:(FailBlock)fblock{
+
+    //数据库中取出来的数据
+    NSData *data = [[XDBData shareInstance] getCacheDataWithURL:urlString dict:dict];
+    if (data) {
+        cblock([XDataService dataToDictionary:data]);
+    }else{
+        [XDataService postWithURL:urlString dict:dict cBlock:cblock fBlock:fblock isCache:YES];
+    }
+}
+
+
++ (void)postWithURL:(NSString *)urlString dict:(NSDictionary *)dict cBlock:(Completion)cblock fBlock:(FailBlock)fblock isCache:(BOOL)isCache{
+    
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
@@ -32,8 +53,12 @@
     request.HTTPBody = jsonData;
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                
+        
         if (error == nil) {
+            if (isCache) {
+                //缓存数据
+                [[XDBData shareInstance] saveDataWithData:data URL:urlString dict:dict];
+            }
             cblock([XDataService dataToDictionary:data]);
         }else
             fblock(error);
@@ -41,6 +66,7 @@
     [sessionDataTask resume];
 }
 
+#pragma mark 同步Get
 + (void)startSyncGetWithURL:(NSString *)urlString cBlock:(Completion)cblock fBlock:(FailBlock)fblock{
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0); //创建信号量
     NSURL *url = [NSURL URLWithString:urlString];
@@ -60,6 +86,7 @@
     dispatch_semaphore_wait(semaphore,DISPATCH_TIME_FOREVER);  //等待
 }
 
+#pragma mark 同步Post
 + (void)startSyncPostWithURL:(NSString *)urlString dict:(NSDictionary *)dict cBlock:(Completion)cblock fBlock:(FailBlock)fblock{
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0); //创建信号量
     NSURL *url = [NSURL URLWithString:urlString];

@@ -35,11 +35,19 @@
     }];
 }
 - (IBAction)asPostRequest:(id)sender {
-    [XDataService startPostWithURL:@"http://httpbin.org/post" dict:@{@"test":@"value"} cBlock:^(id result) {
+    
+    [XDataService startPostCacheWithURL:@"http://httpbin.org/post" dict:@{@"test":@"value3"} cBlock:^(id result) {
         NSLog(@"%@",result);
     } fBlock:^(id error) {
         NSLog(@"%@",error);
     }];
+    
+//    [XDataService startPostWithURL:@"http://httpbin.org/post" dict:@{@"test":@"value"} cBlock:^(id result) {
+//        NSLog(@"%@",result);
+//    } fBlock:^(id error) {
+//        NSLog(@"%@",error);
+//    }];
+    
 }
 - (IBAction)sGetRequest:(id)sender {
     for (int i=0; i<3; i++) {
